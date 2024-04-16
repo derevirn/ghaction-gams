@@ -24,4 +24,4 @@ jobs:
 
       - name: Verify GAMS Installation
         run: |
-          & 'C:\GAMS\win64\46.4\gams.exe' lo=3
+          & 'C:\GAMS\46.4\gams.exe' -lo=3
