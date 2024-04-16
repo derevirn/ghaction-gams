@@ -1,0 +1,27 @@
+name: Install GAMS on Windows
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  install-gams:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup GAMS
+        run: |
+          $url = "https://d37drm4t2jghv5.cloudfront.net/distributions/46.4.0/windows/windows_x64_64.exe"
+          $installer = "gams_installer.exe"
+          Invoke-WebRequest -Uri $url -OutFile $installer
+          Start-Process $installer -ArgumentList "/silent" -NoNewWindow -Wait
+          Remove-Item $installer
+
+      - name: Verify GAMS Installation
+        run: |
+          & 'C:\GAMS\win64\46.4\gams.exe' lo=3
