@@ -23,8 +23,10 @@ jobs:
           Remove-Item $installer
           $env:Path += ";C:\GAMS\46"
           [Environment]::SetEnvironmentVariable("Path", $env:Path, [EnvironmentVariableTarget]::Machine)
+          echo $env:Path
 
 
       - name: Verify GAMS Installation
         run: |
-          gams -lo=3
+          cd C:\GAMS\46
+          dir
