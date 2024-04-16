@@ -28,5 +28,4 @@ jobs:
 
       - name: Verify GAMS Installation
         run: |
-          cd C:\GAMS\46
-          dir
+          gams
