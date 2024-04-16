@@ -25,6 +25,14 @@ jobs:
           [Environment]::SetEnvironmentVariable("Path", $env:Path, [EnvironmentVariableTarget]::Machine)
           echo $env:Path
 
+      - name: Setup GAMS License
+        env:
+          LICENSE: ${{ secrets.GAMS_LICENSE }}
+          
+        run: |
+          $licenseFile = "C:\GAMS\46\gamslice.txt"
+          New-Item -ItemType Directory -Force -Path "C:\GAMS\46"
+          Set-Content -Path $licenseFile -Value $env:LICENSE
 
       - name: Verify GAMS Installation
         run: |
