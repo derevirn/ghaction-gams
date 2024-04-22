@@ -36,4 +36,4 @@ jobs:
 
       - name: Verify GAMS Installation
         run: |
-          & "C:\GAMS\46\gams.exe"
+          & "C:\GAMS\46\gams.exe" whouse.gms
