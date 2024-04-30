@@ -16,12 +16,12 @@ jobs:
 
       - name: Setup GAMS
         run: |
-          $url = "https://d37drm4t2jghv5.cloudfront.net/distributions/46.4.0/windows/windows_x64_64.exe"
+          $url = "https://d37drm4t2jghv5.cloudfront.net/distributions/45.7.0/windows/windows_x64_64.exe"
           $installer = "gams_installer.exe"
           Invoke-WebRequest -Uri $url -OutFile $installer
           Start-Process $installer -ArgumentList "/silent" -NoNewWindow -Wait
           Remove-Item $installer
-          $env:Path += ";C:\GAMS\46"
+          $env:Path += ";C:\GAMS\45"
           [Environment]::SetEnvironmentVariable("Path", $env:Path, [EnvironmentVariableTarget]::Machine)
           echo $env:Path
 
@@ -30,10 +30,10 @@ jobs:
           LICENSE: ${{ secrets.GAMS_LICENSE }}
           
         run: |
-          $licenseFile = "C:\GAMS\46\gamslice.txt"
+          $licenseFile = "C:\GAMS\45\gamslice.txt"
           New-Item -ItemType Directory -Force -Path "C:\GAMS\46"
           Set-Content -Path $licenseFile -Value $env:LICENSE
 
       - name: Verify GAMS Installation
         run: |
-          & "C:\GAMS\46\gams.exe" whouse.gms
+          & "C:\GAMS\45\gams.exe" main.gms --DevMode=2 --GenerateInput=on --fCountries='RWO' -Idir=./data
