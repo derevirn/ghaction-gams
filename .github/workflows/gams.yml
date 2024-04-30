@@ -31,7 +31,7 @@ jobs:
           
         run: |
           $licenseFile = "C:\GAMS\45\gamslice.txt"
-          New-Item -ItemType Directory -Force -Path "C:\GAMS\46"
+          New-Item -ItemType Directory -Force -Path "C:\GAMS\45"
           Set-Content -Path $licenseFile -Value $env:LICENSE
 
       - name: Verify GAMS Installation
