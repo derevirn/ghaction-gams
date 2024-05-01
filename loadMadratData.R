@@ -37,14 +37,7 @@ if (!is.null(DevMode) && DevMode == 0) {
     url <- 'https://drive.usercontent.google.com/u/0/uc?id=1YTO3jaqFbZJ5x_J2JfSsVYljXtHBHk0p&export=download'
     fname <- 'dummy_data.tgz' 
     download.file(url, fname, mode="wb")
-
-} else if (!is.null(DevMode) && DevMode == 3) {
-    print("Getting data for GitHub Action")
-    url <- 'https://drive.usercontent.google.com/uc?id=1u6Gx0w7HDiZlmJE4H7xauT28w1qvH6cm&export=download'
-    fname <- 'ghaction_data.tgz' 
-    download.file(url, fname, mode="wb")
 }
-
 
 # Extracting the CSV files into the data folder
 utils::untar(fname, exdir = "./data")

@@ -34,6 +34,18 @@ jobs:
           New-Item -ItemType Directory -Force -Path "C:\GAMS\45"
           Set-Content -Path $licenseFile -Value $env:LICENSE
 
+      - name: Download Datasets
+        run: |
+          @"
+          print("Getting data for GitHub Action")
+          url <- 'https://drive.usercontent.google.com/uc?id=1u6Gx0w7HDiZlmJE4H7xauT28w1qvH6cm&export=download'
+          fname <- 'ghaction_data.tgz'
+          download.file(url, fname, mode="wb")
+          utils::untar(fname, exdir = "./data")
+          "@ | Out-File -FilePath dl_data.R
+
+          RScript dl_data.R
+          
       - name: Test Model Run
         run: |
-          & "C:\GAMS\45\gams.exe" main.gms --DevMode=3 --GenerateInput=on -Idir=./data
+          & "C:\GAMS\45\gams.exe" main.gms --DevMode=0 --GenerateInput=off -Idir=./data

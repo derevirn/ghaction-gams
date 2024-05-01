@@ -121,7 +121,6 @@ $ifthen.genInp %GenerateInput% == on
 $ifthen.loadData %DevMode% == 0 $call "RScript ./loadMadratData.R DevMode=0"
 $elseif.loadData %DevMode% == 1 $call "RScript ./loadMadratData.R DevMode=1"
 $elseif.loadData %DevMode% == 2 $call "RScript ./loadMadratData.R DevMode=2"
-$elseif.loadData %DevMode% == 3 $call "RScript ./loadMadratData.R DevMode=3"
 $endif.loadData
 $endif.genInp
 
