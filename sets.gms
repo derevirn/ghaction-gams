@@ -23,7 +23,7 @@ CYP
 CZE
 DNK
 EGY
-EST
+*EST
 FIN
 FRA
 DEU
@@ -38,9 +38,9 @@ ISR
 ITA
 JPN
 KOR
-LVA
-LTU
-LUX
+*LVA
+*LTU
+*LUX
 MLT
 MEX
 NLD
@@ -59,16 +59,21 @@ TUN
 TUR
 GBR
 USA
+ELL
 /
 
 runCy(allCy) Countries for which the model is running
 /
 %fCountries%
+/
+runCyL(allCy) Countries for which the model is running (used in countries loop)
+/
+%fCountries%
 /;
-
 
 * runCy is equal to allCy on research mode
 runCy(allCy)$(%DevMode% = 0) = allCy(allCy) ;
+runCyL(allCy)$(%DevMode% = 0) = allCy(allCy) ;
 
 sets
 ***        Model Time Horizon       *

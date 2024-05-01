@@ -1,4 +1,4 @@
-name: Install GAMS on Windows
+name: Test OPEN-PROM Model Run
 
 on:
   push:
@@ -34,6 +34,6 @@ jobs:
           New-Item -ItemType Directory -Force -Path "C:\GAMS\45"
           Set-Content -Path $licenseFile -Value $env:LICENSE
 
-      - name: Verify GAMS Installation
+      - name: Test Model Run
         run: |
-          & "C:\GAMS\45\gams.exe" main.gms --DevMode=2 --GenerateInput=on --fCountries='RWO' -Idir=./data
+          & "C:\GAMS\45\gams.exe" main.gms --DevMode=3 --GenerateInput=on -Idir=./data
