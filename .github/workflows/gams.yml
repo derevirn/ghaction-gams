@@ -1,7 +1,7 @@
 name: Test OPEN-PROM Model Run
 
 on:
-  push:
+  pull_request:
     branches:
       - main
   workflow_dispatch:
@@ -48,4 +48,4 @@ jobs:
           
       - name: Test Model Run
         run: |
-          & "C:\GAMS\45\gams.exe" main.gms --DevMode=0 --GenerateInput=off -Idir=./data
+          & "C:\GAMS\45\gams.exe" main.gms --DevMode=0 --GenerateInput=off --fEndY=2030 -Idir=./data

@@ -16,7 +16,7 @@
 *' for a given power generation sector and energy form in a specific time period. The result is the current renewable potential in gigawatts (GW). 
 QPotRenCurr(allCy,PGRENEF,YTIME)$(TIME(YTIME)$(runCy(allCy)))..
 
-         VPotRenCurr(allCy,PGRENEF,YTIME_) 
+         VPotRenCurr(allCy,PGRENEF,YTIME) 
          =E=
          ( VPotRenMaxAllow(allCy,PGRENEF,YTIME) + iMinRenPotential(allCy,PGRENEF,YTIME))/2;
 
